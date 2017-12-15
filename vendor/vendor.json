@@ -26,12 +26,6 @@
 			"revisionTime": "2017-04-18T07:21:50Z"
 		},
 		{
-			"checksumSHA1": "ddOvRyJCJrcV3H6t1/hfxB8Vx/k=",
-			"path": "github.com/apparentlymart/go-grafana-api",
-			"revision": "8003b0c560418e48c3da6edd6619accc0bcf648a",
-			"revisionTime": "2017-11-17T00:33:27Z"
-		},
-		{
 			"checksumSHA1": "+2yCNqbcf7VcavAptooQReTGiHY=",
 			"path": "github.com/apparentlymart/go-rundeck-api",
 			"revision": "f6af74d34d1ef69a511c59173876fc1174c11f0d",
@@ -627,6 +621,12 @@
 			"revisionTime": "2016-09-27T10:08:44Z"
 		},
 		{
+			"checksumSHA1": "S2s9TN3Gf3p+3xRMJ+dE55XkF30=",
+			"path": "github.com/spirius/go-grafana-api",
+			"revision": "4f3377d7551c60461869e21a6fec87afb6384ef2",
+			"revisionTime": "2017-12-15T02:13:45Z"
+		},
+		{
 			"checksumSHA1": "vE43s37+4CJ2CDU6TlOUOYE0K9c=",
 			"path": "golang.org/x/crypto/bcrypt",
 			"revision": "9477e0b78b9ac3d0b03822fd95422e2fe07627cd",
@@ -708,5 +708,5 @@
 			"versionExact": "v1.6.1"
 		}
 	],
-	"rootPath": "github.com/terraform-providers/terraform-provider-grafana"
+	"rootPath": "github.com/spirius/terraform-provider-grafana"
 }
