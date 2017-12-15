@@ -78,6 +78,10 @@ func ResourceDataSource() *schema.Resource {
 				Optional: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
+						"assume_role_arn": &schema.Schema{
+							Type:     schema.TypeString,
+							Optional: true,
+						},
 						"auth_type": &schema.Schema{
 							Type:     schema.TypeString,
 							Required: true,
@@ -225,6 +229,7 @@ func makeDataSource(d *schema.ResourceData) (*gapi.DataSource, error) {
 
 func makeJSONData(d *schema.ResourceData) gapi.JSONData {
 	return gapi.JSONData{
+		AssumeRoleArn: d.Get("json_data.0.assume_role_arn").(string),
 		AuthType:      d.Get("json_data.0.auth_type").(string),
 		DefaultRegion: d.Get("json_data.0.default_region").(string),
 	}
