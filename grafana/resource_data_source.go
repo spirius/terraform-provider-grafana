@@ -23,7 +23,7 @@ func ResourceDataSource() *schema.Resource {
 			},
 
 			"org_id": &schema.Schema{
-				Type:     schema.TypeString,
+				Type:     schema.TypeInt,
 				Optional: true,
 			},
 
@@ -217,7 +217,7 @@ func makeDataSource(d *schema.ResourceData) (*gapi.DataSource, error) {
 
 	return &gapi.DataSource{
 		Id:                id,
-		OrgId:             d.Get("org_id").(int64),
+		OrgId:             int64(d.Get("org_id").(int)),
 		Name:              d.Get("name").(string),
 		Type:              d.Get("type").(string),
 		URL:               d.Get("url").(string),

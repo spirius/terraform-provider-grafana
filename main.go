@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/kaarolch/terraform-provider-grafana/grafana"
+	"github.com/spirius/terraform-provider-grafana/grafana"
 )
 
 func main() {
