@@ -9,12 +9,14 @@ import (
 	"net/url"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 )
 
 type Client struct {
 	key     string
 	baseURL url.URL
+	orgId   string
 	*http.Client
 }
 
@@ -35,8 +37,21 @@ func New(auth, baseURL string) (*Client, error) {
 	return &Client{
 		key,
 		*u,
+		"",
 		&http.Client{},
 	}, nil
+}
+
+//NewWithOrg creates a new grafana client bounded to organization
+func NewWithOrg(auth, baseURL string, orgId int64) (*Client, error) {
+	c, err := New(auth, baseURL)
+	if err != nil {
+		return nil, err
+	}
+	if orgId > 0 {
+		c.orgId = strconv.FormatInt(orgId, 10)
+	}
+	return c, nil
 }
 
 func (c *Client) newRequest(method, requestPath string, body io.Reader) (*http.Request, error) {
@@ -49,7 +64,9 @@ func (c *Client) newRequest(method, requestPath string, body io.Reader) (*http.R
 	if c.key != "" {
 		req.Header.Add("Authorization", c.key)
 	}
-
+	if c.orgId != "" {
+		req.Header.Add("X-Grafana-Org-Id", c.orgId)
+	}
 	if os.Getenv("GF_LOG") != "" {
 		if body == nil {
 			log.Println("request to ", url.String(), "with no body data")

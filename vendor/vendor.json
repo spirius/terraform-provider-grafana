@@ -621,10 +621,10 @@
 			"revisionTime": "2016-09-27T10:08:44Z"
 		},
 		{
-			"checksumSHA1": "S2s9TN3Gf3p+3xRMJ+dE55XkF30=",
+			"checksumSHA1": "Bs9NMbTLntXsHL3KiIbPnP9JPSI=",
 			"path": "github.com/spirius/go-grafana-api",
-			"revision": "4f3377d7551c60461869e21a6fec87afb6384ef2",
-			"revisionTime": "2017-12-15T02:13:45Z"
+			"revision": "750aa8193e72ca9f0cf94c0308179eab77017461",
+			"revisionTime": "2018-01-09T16:24:08Z"
 		},
 		{
 			"checksumSHA1": "vE43s37+4CJ2CDU6TlOUOYE0K9c=",
