@@ -22,6 +22,10 @@ func Provider() terraform.ResourceProvider {
 				DefaultFunc: schema.EnvDefaultFunc("GRAFANA_AUTH", nil),
 				Description: "Credentials for accessing the Grafana API.",
 			},
+			"org_id": &schema.Schema{
+				Type:     schema.TypeInt,
+				Optional: true,
+			},
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
@@ -35,6 +39,14 @@ func Provider() terraform.ResourceProvider {
 }
 
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
+	if attr, ok := d.GetOk("org_id"); ok {
+		return gapi.NewWithOrg(
+			d.Get("auth").(string),
+			d.Get("url").(string),
+			int64(attr.(int)),
+		)
+	}
+
 	return gapi.New(
 		d.Get("auth").(string),
 		d.Get("url").(string),
